@@ -75,9 +75,9 @@ if df is not None:
     st.sidebar.header("🔍 Filtros")
     
     # Filtro por Portfólio (Multiselect)
-    portfolios_disponiveis = sorted(df['Portfólio'].unique())
+    portfolios_disponiveis = sorted(df['Portfolio'].unique())
     portfolios_selecionados = st.sidebar.multiselect(
-        "Portfólio",
+        "Portfolio",
         options=portfolios_disponiveis,
         default=portfolios_disponiveis
     )
@@ -90,7 +90,7 @@ if df is not None:
     )
     
     # Aplicar filtros
-    df_filtrado = df[df['Portfólio'].isin(portfolios_selecionados)]
+    df_filtrado = df[df['Portfolio'].isin(portfolios_selecionados)]
     
     if responsavel_selecionado != 'Todos':
         df_filtrado = df_filtrado[df_filtrado['Responsável'] == responsavel_selecionado]
