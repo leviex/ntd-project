@@ -47,7 +47,7 @@ def carregar_dados():
     """Carrega dados do arquivo CSV"""
     try:
         df = pd.read_csv('Roadmap_Projetos_NTD.csv')
-        
+        df.columns = df.columns.str.strip()
         # Processamento de datas
         df['Previsão de Entrega'] = pd.to_datetime(df['Previsão de Entrega'], format='%d/%m/%Y', errors='coerce')
         
